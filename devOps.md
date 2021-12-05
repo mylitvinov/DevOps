@@ -1,0 +1,56 @@
+sudo apt-get update обновляем репозитории
+
+
+sudo apt install openjdk-11-jdk   установка java
+
+sudo systemctl status jenkins проверка статуса
+или
+sudo service jenkins  status
+
+ http://3.21.106.78:8080 заходим на Jenkins
+
+
+
+Синтаксис cat <<EOF очень полезен при работе с многострочным текстом в Bash, например. при назначении многострочной строки переменной shell, файлу или каналу.
+1. Назначьте многострочную строку переменной shell
+$ sql=$(cat <<EOF
+SELECT foo, bar FROM db
+WHERE foo='baz'
+EOF
+)
+
+Переменная $sql теперь также содержит символы новой строки. Вы можете проверить с помощью echo -e "$sql" .
+
+2. Передайте многострочную строку в файл в Bash
+$ cat <<EOF > print.sh
+#!/bin/bash
+echo \$PWD
+echo $PWD
+EOF
+Файл print.sh теперь содержит:
+
+#!/bin/bash
+echo $PWD
+echo /home/user
+
+3. Передайте многострочную строку в канал в Bash
+$ cat <<EOF | grep 'b' | tee b.txt
+foo
+bar
+baz
+EOF
+Файл b.txt содержит строки bar и baz . Тот же вывод выводится на stdout .
+
+Тест поиск Hello один раз
+
+result=`grep "Hello" index.html | wc -l`
+echo $result
+if [ "$result"="1" ]
+then
+echo "Test Passed"
+else
+echo "Failed"
+exit 1
+fi
+
+
