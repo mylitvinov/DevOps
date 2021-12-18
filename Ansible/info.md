@@ -11,11 +11,17 @@ ssh mylitvinov1@192.168.1.120
 Создание ключей и отправка на сервер publickey:
 
 ssh-keygen -t rsa
-ssh-copy-id -i .ssh/id_rsa.pub mylitvinov@192.168.1.182
+ssh-copy-id -i .ssh/id_rsa.pub mylitvinov1@192.168.1.184
 ===============================================
-Проверка версии ansible:
+установка ansible:
+sudo apt update
+sudo apt install ansible
 
+Проверка версии ansible:
 ansible --version
+
+проверить файл инвентаризации:
+ansible-inventory --list -y
 ===============================================
 Создаем директорию ansible и в ней файл hosts.txt, добавляем сервера для подключения
 mkdir ansible
@@ -50,5 +56,26 @@ host_key_checking = False
 Не надо больше писать после ansible  строчку -i hosts.txt, по умолчанию берем файл, указав где он :
 
 inventory      = ./hosts.txt
+
+Теперь можно подключаться:
+
+ansible all -m ping
+
+Пример ответа к подключенным двум серверам:
+
+ubuntu_slave1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu_slave2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 =========================================================
 
