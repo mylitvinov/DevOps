@@ -61,3 +61,11 @@ ansible all -m uri -a 'url=https://github.com/mylitvinov return_conternt=yes'
 
 Установка пакета apache
 ansible all -m apt -a 'name=apache2 state=latest' -b -K
+
+Проверка статуса
+systemctl status apache2
+
+ansible all -m shell -a 'systemctl status apache2'
+=================================
+
+ключик в конце команды -vvvvv дебагинг
