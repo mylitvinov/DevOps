@@ -8,7 +8,7 @@ ansible-playbook myplaybook.yml -i my_custom_inventory
 ==================================================================
 
 Группа -all входят все сервера из файла hosts
-ungroup остальные сервера, без группы
+ungrouped остальные сервера, без группы
 
 ============================================================
 
@@ -52,14 +52,28 @@ prod_DB
 prod_WEB
 prod_APP
 
-[DB_ALL]
+[DB_ALL:children]
 staging_DB
 prod_DB
 
-[WEB_ALL]
+[WEB_ALL:children]
 staging_WEB
 prod_WEB
 
-
-[staging_servers]
+============================================
+[prod_servers]
 ubuntu_slave1 ansible_host=192.168.1.184 ansible_user=mylitvinov1 ansible_ssh_private_key_file=/home/mylitvinov/.ssh/id_rsa
+
+
+[prod_servers:vars]
+ansible_user=mylitvinov1 
+ansible_ssh_private_key_file=/home/mylitvinov/.ssh/id_rsa
+==================================================
+
+Смотрим какие сервера есть(берет инфу из файла hosts):
+ansible-inventory --list
+
+в виде "дерева":
+ansible-inventory --graph 
+
+=========================================================
