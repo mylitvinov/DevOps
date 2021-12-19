@@ -68,6 +68,12 @@ ubuntu_slave1 ansible_host=192.168.1.184 ansible_user=mylitvinov1 ansible_ssh_pr
 [prod_servers:vars]
 ansible_user=mylitvinov1 
 ansible_ssh_private_key_file=/home/mylitvinov/.ssh/id_rsa
+
+Перенос переменных в group_vars
+
+mkdir group_vars
+nano staging_servers
+
 ==================================================
 
 Смотрим какие сервера есть(берет инфу из файла hosts):
