@@ -2,7 +2,7 @@ ubuntu_master:
 ssh mylitvinov@192.168.1.182
 ===========================================
 ubuntu_slave1:
-ssh mylitvinov1@192.168.1.184
+ssh mylitvinov1@192.168.1.201
 ============================================
 
 ubuntu_slave2:
@@ -11,7 +11,7 @@ ssh mylitvinov1@192.168.1.120
 Создание ключей и отправка на сервер publickey:
 
 ssh-keygen -t rsa
-ssh-copy-id -i .ssh/id_rsa.pub mylitvinov1@192.168.1.184
+ssh-copy-id -i .ssh/id_rsa.pub mylitvinov1@192.168.1.201
 ===============================================
 установка ansible:
 sudo apt update
