@@ -23,7 +23,6 @@ ansible all -m copy -a 'src=devops.txt dest=/home mode=777' -b -K   (-b быть
 
 Но вот когда требуются права root и используется -b, приходится обязательно использовать -К и вводить пароль. На просторах инета пишут, что решается отключением пароля для sudo на целевом хосте (sudo  ALL=(ALL:ALL) NOPASSWD: ALL).
 
-ansible all -m shell -a 'echo $USER=ALL=(ALL:ALL) NOPASSWD: ALL >>
 
 At the end of the /etc/sudoers file add this line:
 username     ALL=(ALL) NOPASSWD:ALL
