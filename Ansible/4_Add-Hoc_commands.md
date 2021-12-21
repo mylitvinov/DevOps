@@ -70,3 +70,35 @@ ansible all -m shell -a 'systemctl status apache2'
 =================================
 
 ключик в конце команды -vvvvv дебагинг
+
+===================================================
+
+Модуль -m command выполняем произвольные комманды, можно опускать в командах
+
+(Время работы сервера с момента последнего запуска)
+
+ansible staging_servers1 -m command  -a uptime
+или
+ansible staging_servers1 -a uptime
+
+================================================================================
+
+Просмотр директорий сервера хоста:
+
+ansible staging_servers1 -a 'ls -la /var/log/ '
+
+=====================================================================
+Извлечение нескольких последних строк из журнала, лога:
+
+ansible staging_servers1 -a 'tail /var/log/kern.log '
+
+=================================================================
+
+Установка пакета nginx c предварительным обновлением пакетов
+ansible staging_servers1 -m apt -a 'name=nginx  update_cashe=yes' -b -K
+ansible staging_servers1 -m apt -a 'name=nginx state=latest ' -b -K
+
+Перезапуск службы nginx:
+ansible staging_servers1 -m service -a 'name=nginx state=restarted ' -b -K
+
+==============================================================

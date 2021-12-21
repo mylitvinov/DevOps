@@ -1,0 +1,28 @@
+---
+- name: Install Apache and upload my web page
+  hosts: staging_servers1
+  become: yes
+
+  vars:
+    source_file: ./MyWebSite/index.html
+    destin_file: /var/www/html
+
+  tasks:
+    # - name: Get update
+    #   apt: name=apache2
+    #     update_cashe=yes
+
+    - name: Install Apache WebServer
+      apt: name=apache2
+        state=latest
+
+    - name: Copy my homepage to server
+      copy: src={{source_file}}
+        dest={{destin_file}}
+        mode=0555
+      notify: Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service: name=apache2
+        state=restarted
