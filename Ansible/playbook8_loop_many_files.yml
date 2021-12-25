@@ -1,0 +1,69 @@
+---
+- name: Install Apache and upload my web page
+  hosts: all
+  become: yes
+
+  vars:
+    source_folder: ./MyWebSite2
+    destin_folder: /var/www/html
+
+  tasks:
+    # - name: Get update
+    #   apt: name=apache2
+    #     update_cashe=
+
+    - name: Print version LINUX
+      debug: var=ansible_os_family
+
+    - block: # ======== for RedHat ==============
+        - name: Install Apache WebServer (RedHat)
+          yum: name=httpd
+            state=latest
+        # - name: Copy my homepage to server
+        #   copy: src={{source_file}}
+        #     dest={{destin_file}}
+        #     mode=0555
+        #   notify: Restart Apache for RedHat
+
+      when: ansible_os_family=='RedHat'
+
+    - block: # ======== for Debian ==============
+        - name: Install Apache WebServer (Debian)
+          apt: name=apache2
+            state=latest
+        # - name: Copy my homepage to server
+        # copy: src={{source_file}}
+        #   dest={{destin_file}}
+        #   mode=0555
+        # notify: Restart Apache for Debian
+      when: ansible_os_family=='Debian'
+
+    - name: Copy my homepage to server
+      # copy: src={{source_folder}}/{{ item }}
+      #   dest={{destin_folder}}
+      #   mode=0555
+      # loop:
+      #   - file1
+      #   - file2
+      #   - file3  
+      copy: name={{ item }}
+        dest={{destin_folder}}
+        mode=0555
+      with_fileglob: '{{ source_folder}}/*'     
+
+
+
+  notify:
+    - Restart Apache for Debian
+    - Restart Apache for RedHat
+
+  handlers:
+    - name: Restart Apache for Debian
+      service: name=apache2
+        state=restarted
+      when: ansible_os_family=='Debian'
+
+    - name: Restart Apache for RedHat
+      service: name=httpd
+        state=restarted
+      when: ansible_os_family=='RedHat'
