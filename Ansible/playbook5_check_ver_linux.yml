@@ -1,0 +1,8 @@
+---
+- name: Check version LINUX
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Print version LINUX
+      debug: var=ansible_os_family
