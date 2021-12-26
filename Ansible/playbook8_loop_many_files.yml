@@ -10,7 +10,7 @@
   tasks:
     # - name: Get update
     #   apt: name=apache2
-    #     update_cashe=
+    #     update_cashe=yes
 
     - name: Print version LINUX
       debug: var=ansible_os_family
