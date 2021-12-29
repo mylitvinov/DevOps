@@ -1,0 +1,11 @@
+---
+- name: Get update
+  hosts: staging_servers1
+  become: yes
+
+  tasks:
+    # - name: Get update
+    #   apt: update_cashe=yes
+
+    - debug:
+        msg: 'Success update'  
