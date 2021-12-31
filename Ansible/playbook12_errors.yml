@@ -1,0 +1,25 @@
+---
+- name: My playbook redirect
+  hosts: all
+  # any_errors_fatal: true
+  become: yes
+
+  tasks:
+    - name: Task 1
+      apt: name=treeee
+        state=latest
+      ignore_errors: yes  
+
+    - name: Task 2
+      shell: echo Hello World!!!
+      # shell: ls -la /etc/
+      register: results
+      # failed_when: "'World' in results.stdout"
+
+      # failed_when: results.rc==0
+
+    - debug:
+        var: results  
+
+    - name: Task 3
+      shell: echo Привет мир!!!
