@@ -1,0 +1,45 @@
+---
+- name: My playbook redirect
+  hosts: all
+  become: yes
+
+  vars:
+    mytext: "Привет от Максима"
+
+  tasks:
+    - name: Ping test
+      ping:
+
+    - name: Unregister server
+      shell: echo This server {{ inventory_hostname }}  was deregistreted, node name is {{ ansible_nodename }} >> /home/log_delegate.txt
+      delegate_to: 127.0.0.1
+
+    - name: Create file1
+      copy:
+        dest: /home/file1
+        content: |
+          This is file №1
+          On english Hello World
+          On russian {{ mytext }}
+      delegate_to: ubuntu_slave1
+
+    - name: Create file2
+      copy:
+        dest: /home/file2
+        content: |
+          This is file №2
+          On english Hello World
+          On russian {{ mytext }}
+
+    - name: Reboot my servers
+      shell: sleep 3 && reboot now
+      async: 1
+      poll: 0
+
+    - name: Wait till my server will come up online
+      wait_for:
+        host: "{{ inventory_hostname }}"
+        state: started
+        delay: 5
+        timeout: 40
+      delegate_to: 127.0.0.1  
