@@ -43,3 +43,8 @@
         delay: 5
         timeout: 40
       delegate_to: 127.0.0.1  
+
+# Если надо запустить команду один раз, неважно на каком сервере
+    - name: Update my DataBase
+      shell: echo Updating DataBase...
+      run_once: true
