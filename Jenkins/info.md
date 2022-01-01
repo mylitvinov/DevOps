@@ -47,5 +47,7 @@ cat .ssh/id_rsa.pub
 Подключаемся пробуем с сервера с jenkins (jenkins@ubuntu:~$ ) к хостам с root правами
 
 ssh root@192.168.1.201
+ssh root@ub1
 
 ssh root@192.168.1.120
+ssh root@ub2
