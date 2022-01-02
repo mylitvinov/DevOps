@@ -31,3 +31,10 @@ else
   exit 1
 fi
 echo "---------------------Test finished----------------------"
+
+
+echo "-----------------Deployment started-----------------------"
+
+scp index.html root@ub1:/var/www/html
+
+echo "-----------------Deployment finished----------------------"
