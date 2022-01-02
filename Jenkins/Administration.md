@@ -66,3 +66,11 @@ Windows PowerShell:
 get-content myjob.xml | java -jar jenkins-cli.jar -s http://localhost:8080 create-job MyJobNumberFromLocalComp-1 
 
 =======================
+
+SSH с GitHub
+
+Settings - SSH and GPG keys - Add SSH key
+
+и вставляем public key
+==============================================
+
