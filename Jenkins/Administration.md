@@ -72,5 +72,7 @@ SSH с GitHub
 Settings - SSH and GPG keys - Add SSH key
 
 и вставляем public key
+
+В самом Jenkins настраиваем privatKey
 ==============================================
 
