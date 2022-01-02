@@ -32,9 +32,12 @@ else
 fi
 echo "---------------------Test finished----------------------"
 
-
 echo "-----------------Deployment started-----------------------"
 
 scp index.html root@ub1:/var/www/html
 
 echo "-----------------Deployment finished----------------------"
+
+# Для плагина Publisher over SSH
+# ssh-keygen -t rsa -b 4096 -m PEM
+# не опен OPENSSH ключ
