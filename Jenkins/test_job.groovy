@@ -3,7 +3,6 @@ ssh root@192.168.1.201 hostname
 ssh root@192.168.1.120 hostname
 // ssh root@ub2  hostname
 
-
 // Started by user admin
 // Running as SYSTEM
 // Building in workspace /var/lib/jenkins/workspace/test_job

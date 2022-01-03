@@ -7,12 +7,17 @@ pipeline {
     stages {
         stage('First step') {
       steps {
-        echo 'Привет СБЕР'
+        echo 'Привет, СБЕР'
       }
         }
         stage('Second step') {
       steps {
         echo "Меня зовут $FIO "
+      }
+        }
+        stage('Third step') {
+      steps {
+        echo "Хочу у вас рабоать "
       }
         }
     }
