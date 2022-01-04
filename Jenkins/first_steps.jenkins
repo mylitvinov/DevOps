@@ -1,5 +1,8 @@
 #!groovy
 // Check ub1 properties
+
+// сначала пишем sh:  sh 'ls -la /etc/var/'
+
 properties([disableConcurrentBuilds()])
 
 pipeline {

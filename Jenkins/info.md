@@ -1,5 +1,10 @@
 http://192.168.1.182:8080
 
+
+ubuntu_master:
+ssh mylitvinov@192.168.1.182
+
+
 =================================================================
 
 sudo systemctl status jenkins

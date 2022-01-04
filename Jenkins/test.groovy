@@ -1,18 +1,18 @@
 
-println("Hello from DevOps") 
+println("Hello from DevOps")
 
-"ls -la".execute().text 
+"ls -la".execute().text
 
-//или 
+//или
 
 new File('/etc/passwd').text
 
 //(выводим все методы)
-Jenkins.instance.metaClass.methods*.name 
- //(узнать число сборщиков)
+Jenkins.instance.metaClass.methods*.name
+//(узнать число сборщиков)
 Jenkins.instance.getNumExecutors()
 //(установить число сборщиков)
-Jenkins.instance.getNumExecutors(5) 
+Jenkins.instance.getNumExecutors(5)
 
 //Вывести все результаты джоба
 
@@ -31,12 +31,12 @@ job.getBuilds().each {
      it.delete()
    }
 }
- 
+
 //Стираем счетчик  всех сборок
 
 job.builds().each { build =>
      build.delete()
-   }
+}
 }
 
 //Обнуляем, ставим желаемый следующий номер сборки
