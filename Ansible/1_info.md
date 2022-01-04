@@ -1,5 +1,5 @@
 ubuntu_master:
-ssh mylitvinov@192.168.1.182
+ssh mylitvinov@192.168.1.202
 ===========================================
 ubuntu_slave1:
 ssh mylitvinov1@192.168.1.201
