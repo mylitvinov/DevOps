@@ -194,3 +194,28 @@ File parametr:
 File location: Название файла (/home/ubuntu/UPLOADED_FILE)
 Куда и под каким именем будет загружаться файл
 Desription:
+
+=================================================
+
+Groovy
+
+println("Hello from DevOps") печатаем строки
+
+"ls -la".execute().text  вывод содержимого каталога
+
+или 
+
+new File('/etc/passwd').text
+
+Jenkins.instance.metaClass.methods*.name (выводим все методы)
+
+Jenkins.instance.getNumExecutors() (узнать число сборщиков)
+Jenkins.instance.getNumExecutors(5) (установить число сборщиков)
+
+Вывести все результаты джоба
+
+job = Jenkins.instance.getItemByFullName('Deploy-to-server_ub1_from_GitHub')
+
+job.getBuilds().each (
+  println('Build ' + it + ' Results ' + it.result)
+) 
