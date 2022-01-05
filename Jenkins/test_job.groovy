@@ -1,7 +1,7 @@
-ssh root@192.168.1.201 hostname
+ssh root@192.168.1.201 'hostname'
 
 // ssh root@ub1  hostname
-ssh root@192.168.1.120 hostname
+ssh root@192.168.1.120 'hostname'
 // ssh root@ub2  hostname
 
 команды в стейджах сначала пишем sh
