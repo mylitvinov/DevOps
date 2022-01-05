@@ -1,0 +1,16 @@
+// Run build
+pipeline {
+    agent any
+    stages {
+        stage("First step") {
+            steps {
+                sh 'ssh root@192.168.1.201 \'hostname\''
+            }
+        }
+        stage("Second step") {
+            steps {
+                sh 'ssh root@192.168.1.201 \'uptime\''
+            }
+        }
+    }
+}
