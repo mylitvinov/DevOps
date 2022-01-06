@@ -14,14 +14,14 @@ pipeline {
         }
         stage('I want to work for you') {
           steps {
-            echo "Хочу у вас рабоать "
+            echo "Хочу у вас работать "
       }
         }
         stage('Submit') {
            input {
                 message "Принимаем на работу?"
                 ok "Принять на работу."
-                submitter "Отказать"
+                // submitter "Отказать"
               
             }
             steps {
@@ -32,9 +32,14 @@ pipeline {
         stage('End') {
            steps {
              echo "Поздравляем, $FIO ."
-            }
-        }  
+           }
+        }
     }
+    post { 
+        always { 
+            echo "Поздравляем, $FIO "
+        }
+      }
 }
 
 
