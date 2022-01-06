@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo "Хочу у вас работать"
             }
+        }
         stage('Make choice') {
             input {
                 message "Принимаем на работу?"
