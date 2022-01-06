@@ -18,9 +18,22 @@ pipeline {
                 }
             }
             steps {
-                echo "Меня зовут Максим "
+                echo "Меня зовут $FIO"
             }
+            
         }
+        stage('I want to work for you') {
+            steps {
+                echo "Хочу у вас работать"
+            }
+        stage('Make choice') {
+            input {
+                message "Принимаем на работу?"
+                ok "Принять на работу"
+                  }
+            steps {
+                echo "Принят"
+            }
           
     }
    
