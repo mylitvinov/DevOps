@@ -8,6 +8,12 @@ pipeline {
                 echo "Привет, СБЕР"
             }
           } 
+
+        stage('I am want work') {
+            steps {
+                echo "Хочу у вас работать"
+            }
+          }  
           
         stage('What is your name?') {
             input {
