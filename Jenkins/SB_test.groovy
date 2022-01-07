@@ -8,12 +8,6 @@ pipeline {
                 echo "Привет, СБЕР"
             }
           } 
-
-        stage('I am want work') {
-            steps {
-                echo "Хочу у вас работать"
-            }
-          }  
           
         stage('What is your name?') {
             input {
@@ -40,6 +34,20 @@ pipeline {
                   }
             steps {
                 echo "Принят"
+            }
+          
+       }
+
+       stage('END') {
+            input {
+                message "Введите вашу почту"
+                ok "Отправить"
+                parameters {
+                    string(name: 'MAIL', defaultValue: '', description: 'email')
+                }
+                  }
+            steps {
+                echo "Сообщение отправлено на почту: $MAIL"
             }
           
        }
