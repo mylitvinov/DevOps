@@ -3,7 +3,8 @@
 Настройка окружения:
 
 cd docker_images
-mkdir non-privileged-user c d non-privileged-user
+mkdir non-privileged-user 
+cd non-privileged-user
 
 
 Создание Dockerfile:
@@ -15,7 +16,8 @@ vi Dockerfile
 
 # Creates a CentOS image that uses cloud_user as a non-privileged user
 FROM centos:latest
-RUN useradd -ms /bin/bash cloud_user U SER cloud_user
+RUN useradd -ms /bin/bash cloud_user 
+USER cloud_user
 
 
 Сборка нового образа:
