@@ -3,7 +3,7 @@
 
 // сначала пишем sh:  sh 'ls -la /etc/var/'
 
-properties([disableConcurrentBuilds()])
+// properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
@@ -14,12 +14,12 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@192.168.1.202 \'hostname\''
+                sh 'ssh root@ub1 \'hostname\''
             }
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@192.168.1.202 \'uptime -p\''
+                sh 'ssh root@ub1 \'uptime -p\''
             }
         }
     }
