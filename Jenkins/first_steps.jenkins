@@ -7,10 +7,10 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-        timestamps()
-    }
+    // options {
+    //     buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    //     timestamps()
+    // }
     stages {
         stage("First step") {
             steps {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@ub1 \'uptime\''
+                sh 'ssh root@ub1 \'uptime -p\''
             }
         }
     }
