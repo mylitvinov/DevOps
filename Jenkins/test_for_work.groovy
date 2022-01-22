@@ -44,20 +44,20 @@ pipeline {
 
 
 
-pipeline {
-    agent any
-    parameters { string(name: 'FIO', defaultValue: ' ', description: 'Введите ваши ФИО') }
-    stages {
-        stage('Submit') {
-            input {
-                message "Принимаем на работу?"
-                ok "Принять на работу."
-                submitter "Отказать"
+// pipeline {
+//     agent any
+//     parameters { string(name: 'FIO', defaultValue: ' ', description: 'Введите ваши ФИО') }
+//     stages {
+//         stage('Submit') {
+//             input {
+//                 message "Принимаем на работу?"
+//                 ok "Принять на работу."
+//                 submitter "Отказать"
               
-            }
-            steps {
-                echo "Поздравляем, ${FIO}, вы приняты."
-            }
-        }
-    }
-}
+//             }
+//             steps {
+//                 echo "Поздравляем, ${FIO}, вы приняты."
+//             }
+//         }
+//     }
+// }
