@@ -14,7 +14,7 @@ pipeline {
             stage ('second') {
               post {
                 aborted {
-  .               steps {
+                  steps {
                       echo "Отказано"
                   }
               }
