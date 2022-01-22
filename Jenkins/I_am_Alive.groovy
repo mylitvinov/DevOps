@@ -11,14 +11,16 @@ pipeline {
                    print  "I am alive!"                
                }}
            }
-
-           post {
-             aborted {
-  .              steps {
+            stage ('second') {
+              post {
+                aborted {
+  .               steps {
                       echo "Отказано"
                   }
               }
-         }    
+            }
+          }
+               
  
      }
 }   
