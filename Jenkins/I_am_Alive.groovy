@@ -2,7 +2,7 @@ pipeline {
        agent any
 
         stages {
-           stage('Connection test') {
+            stage('Connection test') {
                 input {
                    message "Make Choice"
                    ok "OK"
@@ -10,15 +10,13 @@ pipeline {
                 steps { script {          
                    print  "I am alive!"                
                }}
-        stage('Example stage') {
-           echo '''
-            WTF
-            COOL
-            DevOps
-           '''
-         }
-               
-       }    
-   }
-
+           }    
+            stage('Example stage') {
+              echo '''
+              WTF
+              COOL
+              DevOps
+               '''
+             }
+     }
 }   
