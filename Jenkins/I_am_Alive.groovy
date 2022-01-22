@@ -6,6 +6,8 @@ pipeline {
                steps { script {          
                    print  "I am alive!"                
                }}
+
+               input 'Make Choice'
            }
        }    
    }
