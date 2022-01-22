@@ -19,14 +19,6 @@ pipeline {
                   }
               }
          }    
-        //     stage('Example stage') {
-        //       steps {
-        //         echo '''
-        //           WTF
-        //           COOL
-        //           DevOps
-        //         '''
-        //      }
-        // }
+ 
      }
 }   
