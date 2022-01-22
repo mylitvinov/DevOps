@@ -4,8 +4,8 @@ pipeline {
        stages {
            stage('Connection test') {
                 input {
-                   message: 'Make Choice'
-                   ok: 'OK'
+                   message "Make Choice"
+                   ok "OK"
                }
            
                 steps { script {          
