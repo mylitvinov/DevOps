@@ -12,11 +12,13 @@ pipeline {
                }}
            }    
             stage('Example stage') {
-              echo '''
-              WTF
-              COOL
-              DevOps
-               '''
+              steps {
+                echo '''
+                  WTF
+                  COOL
+                  DevOps
+                '''
              }
+        }
      }
 }   
