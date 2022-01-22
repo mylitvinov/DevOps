@@ -7,7 +7,9 @@ pipeline {
                    print  "I am alive!"                
                }}
 
-               input 'Make Choice'
+               input {
+                 message: 'Make Choice'
+                 ok: 'OK'
            }
        }    
    }
