@@ -3,14 +3,16 @@ pipeline {
 
        stages {
            stage('Connection test') {
-               steps { script {          
+                input {
+                   message: 'Make Choice'
+                   ok: 'OK'
+               }
+           
+                steps { script {          
                    print  "I am alive!"                
                }}
 
-               input {
-                 message: 'Make Choice'
-                 ok: 'OK'
-           }
+               
        }    
    }
 
