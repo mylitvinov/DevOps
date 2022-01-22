@@ -10,15 +10,23 @@ pipeline {
                 steps { script {          
                    print  "I am alive!"                
                }}
-           }    
-            stage('Example stage') {
-              steps {
-                echo '''
-                  WTF
-                  COOL
-                  DevOps
-                '''
-             }
-        }
+           }
+
+           post {
+             aborted {
+  .              steps {
+                      echo "Отказано"
+                  }
+              }
+         }    
+        //     stage('Example stage') {
+        //       steps {
+        //         echo '''
+        //           WTF
+        //           COOL
+        //           DevOps
+        //         '''
+        //      }
+        // }
      }
 }   
