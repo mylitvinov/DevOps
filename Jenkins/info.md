@@ -57,7 +57,7 @@ su - jenkins
 
 cat .ssh/id_rsa.pub 
 
-Заходим на хост и вставляем в файл .ssh/authorized_keys, под root
+Заходим на хост и вставляем в файл .ssh/authorized_keys, под root пользователем
 
 =====================================================
 Подключаемся пробуем с сервера с jenkins (jenkins@ubuntu:~$ ) к хостам с root правами
