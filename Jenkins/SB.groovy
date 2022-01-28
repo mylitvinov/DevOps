@@ -5,7 +5,7 @@ pipeline {
     stages{
         stage('Hello, SBER') {
             steps {
-                echo "Привет, СБЕР"
+                echo "Привет СБЕР"
             }
           } 
           
@@ -39,19 +39,19 @@ pipeline {
        }
 
        stage('END') {
-            input {
-                message "Введите вашу почту"
-                ok "Отправить"
-                parameters {
-                    string(name: 'MAIL', defaultValue: '', description: 'email')
-                }
-                  }
+            // input {
+            //     message "Введите вашу почту"
+            //     ok "Отправить"
+            //     parameters {
+            //         string(name: 'MAIL', defaultValue: '', description: 'email')
+            //     }
+            //       }
             steps {
                 echo "Сообщение отправлено на почту: $MAIL"
+                echo "$FIO принят"
             }
           
        }
-   
-   }
+  }
 }
 
