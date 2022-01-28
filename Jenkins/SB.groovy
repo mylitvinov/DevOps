@@ -58,11 +58,13 @@ pipeline {
           
        }
 
-       post { 
+      
+  } 
+  
+      post { 
           aborted { 
             echo "Отказано"
                  }
                } 
-  }
 }
 
