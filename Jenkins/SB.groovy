@@ -1,9 +1,9 @@
 
 pipeline {
     agent any
-    parameters {
-      string(name: 'FIO', defaultValue: '', description: 'ФИО')
-    }
+    // parameters {
+    //   string(name: 'FIO', defaultValue: '', description: 'ФИО')
+    // }
     stages{
         stage('1: Hello, SBER') {
             steps {
@@ -20,7 +20,7 @@ pipeline {
             //     }
             // }
             steps {
-                echo "Меня зовут $FIO"
+                echo "Меня зовут FIO"
             }
             
         }
@@ -50,7 +50,7 @@ pipeline {
             //       }
             steps {
                 echo "Сообщение отправлено на почту: MAIL "
-                echo "$FIO принят"
+                echo "FIO принят"
             }
           
        }
