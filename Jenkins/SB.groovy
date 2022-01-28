@@ -3,13 +3,13 @@ pipeline {
     agent any
     
     stages{
-        stage('Hello, SBER') {
+        stage('1: Hello, SBER') {
             steps {
                 echo "Привет СБЕР"
             }
           } 
           
-        stage('What is your name?') {
+        stage('2: What is your name?') {
             input {
                 message "Введите ваши ФИО и нажмите ОК"
                 ok "ОК"
@@ -22,12 +22,12 @@ pipeline {
             }
             
         }
-        stage('I want to work for you') {
+        stage('3: I want to work for you') {
             steps {
                 echo "Хочу у вас работать"
             }
         }
-        stage('Make choice') {
+        stage('4: Make choice') {
             input {
                 message "Принимаем на работу?"
                 ok "Принять на работу"
@@ -38,7 +38,7 @@ pipeline {
           
        }
 
-       stage('END') {
+       stage('5: END') {
             // input {
             //     message "Введите вашу почту"
             //     ok "Отправить"
@@ -47,7 +47,7 @@ pipeline {
             //     }
             //       }
             steps {
-                echo "Сообщение отправлено на почту: $MAIL"
+                echo "Сообщение отправлено на почту: /"$MAIL/" "
                 echo "$FIO принят"
             }
           
