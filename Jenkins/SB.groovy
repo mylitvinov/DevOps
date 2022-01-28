@@ -12,13 +12,6 @@ pipeline {
           } 
           
         stage('2: What is your name?') {
-            // input {
-            //     message "Введите ваши ФИО и нажмите ОК"
-            //     ok "ОК"
-            //     parameters {
-            //         string(name: 'FIO', defaultValue: '', description: 'ФИО')
-            //     }
-            // }
             steps {
                 echo "Меня зовут $FIO"
             }
@@ -32,17 +25,13 @@ pipeline {
         stage('4: Make choice') {
             input {
                 message "Принимаем на работу?"
-                ok "Принять на работу"
+                     ok "Принять на работу"
                   }
-              steps{ 
-
-                echo "Отлично"
-                
-            }  
+                steps{ 
+                   echo "Отлично"
+          }  
         }
-        
-         
-        
+             
         stage('5: END') {
             // input {
             //     message "Введите вашу почту"
@@ -54,13 +43,10 @@ pipeline {
             steps {
                 echo "Сообщение отправлено на почту: MAIL "
                 echo "$FIO принят"
-            }
-          
-       }
-
+            }          
+          }
+      } 
       
-  } 
-  
       post { 
           aborted { 
             echo "Отказано"
