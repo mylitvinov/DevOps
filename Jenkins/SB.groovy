@@ -1,9 +1,9 @@
 
 pipeline {
     agent any
-    // parameters {
-    //   string(name: 'FIO', defaultValue: '', description: 'ФИО')
-    // }
+    parameters {
+      string(name: 'FIO', defaultValue: '', description: 'ФИО')
+    }
     stages{
         stage('1: Hello, SBER') {
             steps {
