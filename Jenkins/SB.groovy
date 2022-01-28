@@ -36,16 +36,9 @@ pipeline {
                   }
               
         }
-
         post { 
-                success { 
-                  echo "Отлично"
-                 }
-               }
-
-        post { 
-                aborted { 
-                  echo "Отказано"
+          aborted { 
+            echo "Отказано"
                  }
                } 
 
