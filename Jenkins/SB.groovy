@@ -1,7 +1,9 @@
 
 pipeline {
     agent any
-    
+    parameters {
+      string(name: 'FIO', defaultValue: '', description: 'ФИО')
+    }
     stages{
         stage('1: Hello, SBER') {
             steps {
@@ -10,13 +12,13 @@ pipeline {
           } 
           
         stage('2: What is your name?') {
-            input {
-                message "Введите ваши ФИО и нажмите ОК"
-                ok "ОК"
-                parameters {
-                    string(name: 'FIO', defaultValue: '', description: 'ФИО')
-                }
-            }
+            // input {
+            //     message "Введите ваши ФИО и нажмите ОК"
+            //     ok "ОК"
+            //     parameters {
+            //         string(name: 'FIO', defaultValue: '', description: 'ФИО')
+            //     }
+            // }
             steps {
                 echo "Меня зовут $FIO"
             }
