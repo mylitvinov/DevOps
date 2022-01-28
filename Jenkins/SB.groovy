@@ -34,20 +34,22 @@ pipeline {
                 message "Принимаем на работу?"
                 ok "Принять на работу"
                   }
-              post { 
+              
+        }
+
+        post { 
                 success { 
                   echo "Отлично"
                  }
                }
 
-              post { 
+        post { 
                 aborted { 
                   echo "Отказано"
                  }
                } 
-        }
 
-       stage('5: END') {
+        stage('5: END') {
             // input {
             //     message "Введите вашу почту"
             //     ok "Отправить"
