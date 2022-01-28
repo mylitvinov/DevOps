@@ -35,15 +35,18 @@ pipeline {
                 ok "Принять на работу"
                   }
               steps{ 
-                post { 
+
+                echo "Отлично"
+                
+            }  
+        }
+        
+         post { 
           aborted { 
             echo "Отказано"
                  }
                } 
-        }
-     }  
         
-
         stage('5: END') {
             // input {
             //     message "Введите вашу почту"
