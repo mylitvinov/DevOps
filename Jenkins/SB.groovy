@@ -41,11 +41,7 @@ pipeline {
             }  
         }
         
-         post { 
-          aborted { 
-            echo "Отказано"
-                 }
-               } 
+         
         
         stage('5: END') {
             // input {
@@ -61,6 +57,12 @@ pipeline {
             }
           
        }
+
+       post { 
+          aborted { 
+            echo "Отказано"
+                 }
+               } 
   }
 }
 
