@@ -34,12 +34,14 @@ pipeline {
                 message "Принимаем на работу?"
                 ok "Принять на работу"
                   }
-              post { 
+              steps{ 
+                post { 
           aborted { 
             echo "Отказано"
                  }
                } 
         }
+     }  
         
 
         stage('5: END') {
