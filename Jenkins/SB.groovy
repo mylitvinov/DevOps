@@ -3,6 +3,7 @@ pipeline {
     agent any
     parameters {
       string(name: 'FIO', defaultValue: '', description: 'ФИО')
+      string(name: 'MAIL', defaultValue: '', description: 'Введите вашу почту')
     }
     stages{
         stage('1: Hello, SBER') {
@@ -33,16 +34,9 @@ pipeline {
         }
              
         stage('5: END') {
-            // input {
-            //     message "Введите вашу почту"
-            //     ok "Отправить"
-            //     parameters {
-            //         string(name: 'MAIL', defaultValue: '', description: 'email')
-            //     }
-            //       }
-            steps {
-                echo "Сообщение отправлено на почту: MAIL "
-                echo "$FIO принят"
+                steps {
+                  echo "Сообщение отправлено на почту: $MAIL "
+                  echo "$FIO принят"
             }          
           }
       } 
