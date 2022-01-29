@@ -36,7 +36,8 @@ pipeline {
         stage('5: END') {
                   
                   steps {
-                       emailext body: "$FIO принят", subject: "SBER_TEST_FROM_JENKINS", to: "$MAIL"
+                       mail to: "$MAIL", subject: "SBER_TEST_FROM_JENKINS", body: "$FIO принят"
+                       //emailext body: "$FIO принят", subject: "SBER_TEST_FROM_JENKINS", to: "$MAIL"
                        echo "Сообщение отправлено на почту: $MAIL "
                   
             }          
