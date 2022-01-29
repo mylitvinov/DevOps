@@ -39,11 +39,11 @@ pipeline {
         stage('5: END') {
                   
                 steps {
-                    mail {
-                        to: "$MAIL"
-                        subject: "SBER_TEST_FROM_JENKINS"
-                        body: "$FIO принят"
-                      }
+                    mail (
+                      to: "$MAIL", 
+                      subject: "SBER_TEST_FROM_JENKINS", 
+                      body: "$FIO принят"
+                    )
                     echo "Сообщение отправлено на почту: $MAIL "
             }          
           }
