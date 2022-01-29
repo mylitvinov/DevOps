@@ -34,13 +34,13 @@ pipeline {
         }
              
         stage('5: END') {
-                  steps {
                   emailext (
                   to: "$MAIL"
                   subject: "SBER_TEST"
                   body: "$FIO принят"
                    )
-                  echo "Сообщение отправлено на почту: $MAIL "
+                   steps {
+                       echo "Сообщение отправлено на почту: $MAIL "
                   
             }          
           }
