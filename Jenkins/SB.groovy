@@ -1,6 +1,9 @@
 
 pipeline {
     agent any
+    options {
+      timestamps()
+    }
     parameters {
       string(name: 'FIO', defaultValue: '', description: 'ФИО')
       string(name: 'MAIL', defaultValue: '', description: 'Введите вашу почту')
@@ -26,20 +29,22 @@ pipeline {
         stage('4: Make choice') {
             input {
                 message "Принимаем на работу?"
-                     ok "Принять на работу"
+                   ok "Принять на работу"
                   }
                 steps{ 
-                   echo "Отлично"
+                  echo "Отлично"
           }  
         }
              
         stage('5: END') {
                   
-                  steps {
-                       mail to: "$MAIL", subject: "SBER_TEST_FROM_JENKINS", body: "$FIO принят"
-                       //emailext body: "$FIO принят", subject: "SBER_TEST_FROM_JENKINS", to: "$MAIL"
-                       echo "Сообщение отправлено на почту: $MAIL "
-                  
+                steps {
+                    mail (
+                        to: "$MAIL"
+                        subject: "SBER_TEST_FROM_JENKINS"
+                        body: "$FIO принят"
+                       )
+                    echo "Сообщение отправлено на почту: $MAIL "
             }          
           }
       } 
@@ -48,6 +53,6 @@ pipeline {
           aborted { 
             echo "Отказано"
                  }
-               } 
+          } 
 }
 
