@@ -1,20 +1,33 @@
 pipeline {
   agent any
   stages {
-    stage(‘Error’) {
+    stage('Error') {
       steps {
-        error “failure test. It’s work”
+        error "failure test. It's work"
       }
     }
-    stage(‘ItNotWork’) {
+    stage("ItNotWork") {
       steps {
-        echo “is not pass here”
+        echo "is not pass here"
       }
    }
   }
   post {
     success {
-      mail to: team@example.com, subject: ‘The Pipeline success :(‘
+      mail to: team@example.com, subject: 'The Pipeline success :('
     }
   }
 }
+
+
+// pipeline {
+//   agent any
+//   stages {
+//     …
+//   }
+//   post {
+//     failure {
+//       mail to: team@example.com, subject: ‘The Pipeline failed :(‘
+//     }
+//   }
+// }
