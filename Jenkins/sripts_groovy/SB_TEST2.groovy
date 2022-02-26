@@ -1,6 +1,7 @@
 pipeline {
-    agent {
-      any
+    agent any
+    options {
+      timestamps()
     }
     parameters {
       string(name: 'MY_NAME', defaultValue: '', description: 'ФИО')
