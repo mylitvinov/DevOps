@@ -1,9 +1,6 @@
 pipeline {
     agent {
-        node {
-
-            label 'Linux_Default'    
-        }
+      any
     }
     parameters {
       string(name: 'MY_NAME', defaultValue: '', description: 'ФИО')
